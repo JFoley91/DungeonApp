@@ -52,15 +52,22 @@ namespace Dungeon
             Weapon bronzeScimitar = new Weapon(1, 6, "Bronze Scimitar");
             Weapon steelScimitar = new Weapon(1, 8, "Steel Scimitar");
             Weapon mithrilScimitar = new Weapon(1, 10, "Mithril Scimitar");
+            Weapon runeScimitar = new Weapon(1, 12, "Rune Scimitar");
+            Weapon dragonScimitar = new Weapon(1, 15, "Dragon Scimitar");
+
 
             PlayerInfo player = new PlayerInfo(playerName, 50, 10, 30, 30, playerRace, bronzeScimitar);
 
-                Goblin g1 = new Goblin();
-                Goblin g2 = new Goblin("HobGoblin", 25, 25, 30, 20, 1, 7, "A bigger and badder goblin!");
-                Goblin g3 = new Goblin("Goblin", 15, 15, 15, 15, 1, 6, "A Goblin with a spear! Slightly more deadly...");
+            Goblin g1 = new Goblin();
+            Goblin g2 = new Goblin("HobGoblin", 25, 25, 35, 20, 1, 7, "A bigger and badder goblin!");
+            Goblin g3 = new Goblin("Goblin", 15, 15, 25, 15, 1, 6, "A Goblin with a spear! Slightly more deadly...");
 
-                Demon d1 = new Demon();
-                Demon d2 = new Demon("Lesser Demon", 40, 40, 35, 30, 1, 12, "Not the worse bust certainly not the best demon to encounter...");
+            Demon d1 = new Demon();
+            Demon d2 = new Demon("Lesser Demon", 40, 40, 45, 30, 1, 12, "Not the worse bust certainly not the best demon to encounter...");
+            Demon d3 = new Demon("Greater Demon", 60, 60, 55, 40, 1, 15, "A Powerful Demon with wings, might be best to run...");
+
+            Human h1 = new Human();
+            Human h2 = new Human("Barbarian", 20, 20, 30, 20, 1, 8, "A Raging Barbarian");
 
             bool exit = false;
             do
@@ -74,7 +81,7 @@ namespace Dungeon
                 Console.ResetColor();
 
 
-                Monster[] monsters = { g1, g3, g2, d2, d1 };
+                Monster[] monsters = { g1, g3, g2, d2, d1, d3, h1, h1, h2 };
 
                 int randomIndex = new Random().Next(monsters.Length);
                 Monster monster = monsters[randomIndex];
@@ -112,6 +119,7 @@ namespace Dungeon
                                 Console.ResetColor();
                                 menu = true;
                                 score++;
+                              
                             }//end IF
                             Combat.LetsAttack(monster, player);
                             break;
@@ -155,6 +163,8 @@ namespace Dungeon
                         exit = true;
                     }
 
+
+
                 } while (!menu && !exit);//end inner/Menu Do
 
             } while (!exit);//End Do
@@ -187,7 +197,7 @@ namespace Dungeon
                 "You cast teleport but something goes wrong...You arrived in the Void! Prepare for a fight!",
 
                 "You cast teleport but something goes wrong...The crisp smell of salt and ash fill the air as you find yourself onthe shores of Relleka! Just to the east you see the wooden barricades that make up the town walls, so you aren'tto far from civilization! However something to the northwest catches your eye, a cart that looks to be broken downwith a few crates lying around. You go to investiage when a monster suddenly walks around from the other side ofthe cart and attacks!"
-            };//end locationc TODO: Add more Locations
+            };//end location TODO: Add more Locations
             return locations[new Random().Next(locations.Length)];
         }
 

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Demon.cs" />
     <Compile Include="Goblin.cs" />
+    <Compile Include="Human.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

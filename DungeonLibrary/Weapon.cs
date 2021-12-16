@@ -12,7 +12,7 @@ namespace DungeonLibrary
 
         public int MaxDamage { get; set; }
         public string Name { get; set; }
-        //public bool IsUpgradeable { get; set; }
+        //public bool IsUpgradable { get; set; }
         //public int CounterDamage { get; set; }
 
         
@@ -38,11 +38,13 @@ namespace DungeonLibrary
             MaxDamage = maxDamage;
             MinDamage = minDamage;
             Name = name;
+           //IsUpgradable = isUpgradable;
         }//end FQ Ctor
 
         public override string ToString()
         {
             return $"{Name}\t {MinDamage} - {MaxDamage} Damage\n";
         }//end ToString
+
     }//end class
 }//end namespace
