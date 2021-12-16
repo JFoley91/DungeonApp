@@ -44,11 +44,23 @@ namespace Dungeon
             Console.WriteLine($"You are now a {playerRace}\n");
             Console.WriteLine("Now what is your name?");
             string playerName = Console.ReadLine();
-            Console.WriteLine($"\n{playerName} is it? A Fine name indeed!");
+            Console.ResetColor();
+            Console.WriteLine($"\n{playerName} is it? A Fine name indeed!\n");
+            Console.Write("Takes these runes to teleportation to begin your quest. It should be but a simple few teleports to" +
+                "reach the few locations we need to map out, Good luck!\n");
 
             Weapon bronzeScimitar = new Weapon(1, 6, "Bronze Scimitar");
+            Weapon steelScimitar = new Weapon(1, 8, "Steel Scimitar");
+            Weapon mithrilScimitar = new Weapon(1, 10, "Mithril Scimitar");
 
-            PlayerInfo player = new PlayerInfo(playerName, 50, 10, 50, 50, playerRace, bronzeScimitar);
+            PlayerInfo player = new PlayerInfo(playerName, 50, 10, 30, 30, playerRace, bronzeScimitar);
+
+                Goblin g1 = new Goblin();
+                Goblin g2 = new Goblin("HobGoblin", 25, 25, 30, 20, 1, 7, "A bigger and badder goblin!");
+                Goblin g3 = new Goblin("Goblin", 15, 15, 15, 15, 1, 6, "A Goblin with a spear! Slightly more deadly...");
+
+                Demon d1 = new Demon();
+                Demon d2 = new Demon("Lesser Demon", 40, 40, 35, 30, 1, 12, "Not the worse bust certainly not the best demon to encounter...");
 
             bool exit = false;
             do
@@ -56,12 +68,6 @@ namespace Dungeon
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
 
-                Goblin g1 = new Goblin();
-                Goblin g2 = new Goblin("HobGoblin", 25, 25, 30, 20, 1, 7, "A bigger and badder goblin!");
-                Goblin g3 = new Goblin("Goblin", 15, 15, 20, 15, 1, 6, "A Goblin with a spear! Slightly more deadly...");
-
-                Demon d1 = new Demon();
-                Demon d2 = new Demon("Lesser Demon", 40, 40, 35, 30, 1, 12, "Not the worse bust certainly not the best demon to encounter...");
 
 
                 Console.WriteLine(TeleportLocations());
@@ -144,6 +150,7 @@ namespace Dungeon
 
                     if (player.Life <= 0)
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("Well we lost another one....OH WELL! We can always find new adventures!");
                         exit = true;
                     }

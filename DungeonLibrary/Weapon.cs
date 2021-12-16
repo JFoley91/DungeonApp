@@ -12,7 +12,10 @@ namespace DungeonLibrary
 
         public int MaxDamage { get; set; }
         public string Name { get; set; }
+        //public bool IsUpgradeable { get; set; }
         //public int CounterDamage { get; set; }
+
+        
 
         public int MinDamage
         {
