@@ -55,7 +55,6 @@ namespace Dungeon
             Weapon runeScimitar = new Weapon(1, 12, "Rune Scimitar");
             Weapon dragonScimitar = new Weapon(1, 15, "Dragon Scimitar");
 
-
             PlayerInfo player = new PlayerInfo(playerName, 50, 10, 30, 30, playerRace, bronzeScimitar);
 
             Goblin g1 = new Goblin();
@@ -81,7 +80,7 @@ namespace Dungeon
                 Console.ResetColor();
 
 
-                Monster[] monsters = { g1, g3, g2, d2, d1, d3, h1, h1, h2 };
+                Monster[] monsters = { g1, g2, g1, g2, g1, g3, g2, d2, d1, d1, d1, d1, d3, h1, h1, h1, h2 };
 
                 int randomIndex = new Random().Next(monsters.Length);
                 Monster monster = monsters[randomIndex];
@@ -119,7 +118,7 @@ namespace Dungeon
                                 Console.ResetColor();
                                 menu = true;
                                 score++;
-                              
+
                             }//end IF
                             Combat.LetsAttack(monster, player);
                             break;
